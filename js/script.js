@@ -56,11 +56,12 @@ const getRepoInfo = async function (repoName) {
   const fetchInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
   const repoInfo = await fetchInfo.json();
   console.log(repoInfo);
-  // Grab languages
+  
+  // Take a hold of the computer languages
   const fetchLanguages = await fetch(repoInfo.languages_url);
   const languageData = await fetchLanguages.json();
 
-  // Make a list of languages
+  // Itemize a list of languages
   const languages = [];
   for (const language in languageData) {
     languages.push(language);
